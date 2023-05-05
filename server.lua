@@ -12,10 +12,10 @@ RegisterCommand("staff", function(source, args, rawCommand)
 	if havePermission(xPlayer) then
 		if not admin then 
 			admin = true
-			TriggerClientEvent('tron:admin', xPlayer.source, tron)
+			TriggerClientEvent('fx:admin', xPlayer.source, tron)
 		else
 			admin = false
-			TriggerClientEvent('tron:admin', xPlayer.source, tron)
+			TriggerClientEvent('fx:admin', xPlayer.source, tron)
 		end      
 	end
 end, false)
