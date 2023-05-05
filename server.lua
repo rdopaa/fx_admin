@@ -4,21 +4,20 @@ ESX = exports['es_extended']:getSharedObject()
 
 -------- NO TOCAR --------
 
-local tron = false
+local admin = false
 
 RegisterCommand("staff", function(source, args, rawCommand)
 		local source = source
 		local xPlayer = ESX.GetPlayerFromId(source)
-			if havePermission(xPlayer) then
-				if not tron then 
-					tron = true
-					TriggerClientEvent('tron:admin', xPlayer.source, tron)
-				else
-					tron = false
-					TriggerClientEvent('tron:admin', xPlayer.source, tron)
-				end      
-			end
-
+	if havePermission(xPlayer) then
+		if not admin then 
+			admin = true
+			TriggerClientEvent('tron:admin', xPlayer.source, tron)
+		else
+			admin = false
+			TriggerClientEvent('tron:admin', xPlayer.source, tron)
+		end      
+	end
 end, false)
 
 
