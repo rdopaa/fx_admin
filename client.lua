@@ -7,10 +7,9 @@ ESX = exports['es_extended']:getSharedObject()
 print('Configurado by fxDopa #ARGRP')
 
 -------------- STAFF TRON --------------------
-RegisterNetEvent('tron:admin')
-AddEventHandler('tron:admin', function()
-
-		if not tron then
+RegisterNetEvent('fx:admin')
+AddEventHandler('fx:admin', function()
+		if not admin then
 			TriggerEvent('chatMessage', 'Entraste a moderar')
 						TriggerEvent('skinchanger:getSkin', function(skin)
 							local couleur = 3
@@ -19,7 +18,7 @@ AddEventHandler('tron:admin', function()
 							SetEntityInvincible(PlayerPedId(), true)
 							SetEntityProofs(PlayerPedId(), true, true, true, true, true, true, true, true)
 							if model == GetHashKey("mp_m_freemode_01") then
-								tron = true
+								admin = true
 								clothesSkin = {
 									['bags_1'] = 0, ['bags_2'] = 0,
 									['tshirt_1'] = 15, ['tshirt_2'] = 0,
@@ -33,7 +32,7 @@ AddEventHandler('tron:admin', function()
 									['helmet_1'] = -1, ['helmet_2'] = 0,
 								}
 							else
-								tron = true
+								admin = true
 								clothesSkin = {
 									['bags_1'] = 0, ['bags_2'] = 0,
 									['tshirt_1'] = 15, ['tshirt_2'] = 0,
@@ -50,7 +49,7 @@ AddEventHandler('tron:admin', function()
 						 TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
 						end)
 				else
-					tron = false
+					admin = false
 					TriggerEvent('chatMessage', 'Saliste de moderar ')
 						ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, jobSkin)
 							local isMale = skin.sex == 0
@@ -64,9 +63,6 @@ AddEventHandler('tron:admin', function()
 						end)
 						SetPedArmour(PlayerPedId(), 0)
 						FreezeEntityPosition(PlayerPedId(), false)
-
-						NoClip = false
-
 						SetEntityVisible(PlayerPedId(), 1, 0)
 						NetworkSetEntityInvisibleToNetwork(PlayerPedId(), 0)
 
